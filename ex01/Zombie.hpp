@@ -6,7 +6,7 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:02:22 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/04/28 14:07:16 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/04/28 18:56:32 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ class Zombie
     private:
         std::string _name;
 
-    public:
-        Zombie(std::string name); // Constructor
+     public:
+        Zombie();  // Default Constructor
+        Zombie(std::string name); // Constructor with name
         ~Zombie(); // Destructor
 
         // Function to announce 'const' bc NOT change the Object
         void announce() const; 
+        void set_name(std::string name);
 
 };
 
