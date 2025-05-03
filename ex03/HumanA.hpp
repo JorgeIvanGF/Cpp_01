@@ -6,7 +6,7 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:44:57 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/03 13:16:17 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:31:53 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ class HumanA
 		std::string _name;
 	
 	public:
-		HumanA(const std::string &name, Weapon &weapon); //Constructor
+		// Constructor
+		// Use "&weapon" to guarantee ALWAYS should be a VALID weapon to ensure subject's premise "HumanA will always be armed" 
+		// if not, we could use Pointer (it accepts NULL, while "&" Not)
+		HumanA(const std::string &name, Weapon &weapon);
 		
 		void attack()const; // Function to attak (it doesnot modify any data of teh class => "const")
 	
