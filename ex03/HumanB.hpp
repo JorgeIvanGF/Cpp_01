@@ -6,12 +6,12 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 15:49:31 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/03 14:04:41 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/03 14:25:43 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
-#define HUMANB__CPP
+#define HUMANB_HPP
 
 #include "Weapon.hpp"
 
