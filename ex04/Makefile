@@ -9,7 +9,7 @@ CXX = c++
 CCXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 #Files
-NAME = sedloser
+NAME = sed
 
 # Source files
 SRC = main.cpp
