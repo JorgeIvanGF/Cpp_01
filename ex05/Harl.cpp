@@ -6,7 +6,7 @@
 /*   By: jorgutie <jorgutie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:18:53 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/04 22:56:05 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 01:01:37 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,33 @@ void Harl::complain( std::string level)
 	// The creation of the Type definition
 	// for “pointer to a Harl member function"
 	typedef void (Harl::*HarlFunc)();
-
-	// Points to one of the member fns (in this case "debug")
-	HarlFunc funcPtr = Harl::debug;
-
-	// It is need an Object of the class to call the funcPtr
-	Harl h;
-	(h.*funcPtr)(); // call the method that ptr points to, on the object h
 	
+	// Creation of Dispatch table:	
+	// With the names
+	static const std::string names[4] = 
+	{
+		"DEBUG", "INFO", "WARNING", "ERROR"
+	};
 	
+	// With the functions
+	static const HarlFunc actions[4] = 
+	{
+		&Harl::debug,
+		&Harl::info,
+		&Harl::warning,
+		&Harl::error
+	};
+
+	// Search for the matching name
+	for (int i = 0; i < 4; ++i) 
+	{
+		if (names[i] == level) 
+		{
+			// Call the right method on this object:
+			std::cout << "Level: " << YELLOW << level << RESET << std::endl;
+			(this->*actions[i])();
+			return;   // done
+		}
+	}
+	std::cout <<RED << "No complaints at this level: " << YELLOW << level << RESET << std::endl;
 }
