@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jorgutie <jorgutie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:47:59 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/03 18:17:46 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/04 14:59:57 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,47 @@
 #include <iostream>
 #include <fstream> // to open the file
 
+// 1) Open the input file
+bool openFile(const std::string &filename, std::ifstream &input)
+{
+	input.open(filename);
+	if (!input.is_open()) {
+		std::cerr << RED
+				  << "Error: Could not open file "
+				  << YELLOW << filename << RESET
+				  << '\n';
+		return false;
+	}
+	return true;
+}
+
+// 2) Read the entire contents of 'input' into 'content'
+bool readFile(std::ifstream& input, std::string& content) {
+    std::string line;
+    while (std::getline(input, line)) {
+        content += line;
+        content += '\n';
+    }
+    if (input.bad()) {
+        std::cerr << RED
+                  << "Error: Failed while reading input file"
+                  << RESET << '\n';
+        return false;
+    }
+    input.close();
+    return true;
+}
+
+
 int main(int ac, char **av)
 {
 	// Check if 3 args
 	if(ac == 4)
 	{
 		// Assignments of the args __________________________________________________
-		std::string filename = av[1];
-		std::string s1 = av[2];
-		std::string s2 = av[3];
+		const std::string filename = av[1];
+		const std::string s1 = av[2];
+		const std::string s2 = av[3];
 
 		// S1 empty
 		if(s1.empty())
@@ -37,26 +69,17 @@ int main(int ac, char **av)
 			return 1;
 		}
 		
-		// To open the file __________________________________________________________
-		std::ifstream input(filename.c_str());
+		// Main Logic of  the Program:_______________________
 		
-		// Check failure if not open
-		if (!input.is_open()) 
-		{
-			std::cerr << RED << "Error: Could not open file " 
-					  << YELLOW << filename << RESET << std::endl;
-			return 1;
-		}
+		// Open the file using input_file stream object,
+		// similar to "std::cin", but from a file not user input
+		std::ifstream input; 		
+		if (!openFile(filename, input)) return 1; 
+	
+		// To read and storage the content of the file in one string
+		std::string content; 
+		if (!readFile(input, content)) return 1;
 		
-		// Copying part ___________________________________________________________
-		std::string content; // To store in a single string the file content
-		std::string line; // To get one line at a time
-		while (std::getline(input, line)) // Loop To pull line by line from content to the string
-		{
-			content += line;
-			content += '\n';
-		}
-		input.close();
 
 		// Find-Replace part_______________________________________________________
 		size_t pos = 0; // To track the position

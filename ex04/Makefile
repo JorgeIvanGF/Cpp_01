@@ -6,7 +6,7 @@ RESET = \033[0m
 
 # Compiler and Flags
 CXX = c++
-CCXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CCXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
 #Files
 NAME = sedloser
