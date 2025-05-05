@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorgutie <jorgutie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 14:47:59 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/04 15:50:26 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:36:40 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 bool openFile(const std::string &filename, std::ifstream &input)
 {
 	input.open(filename);
-	if (!input.is_open()) {
+	if (!input.is_open())
+	{
 		std::cerr << RED
 				  << "Error: Could not open file "
 				  << YELLOW << filename << RESET
@@ -110,21 +111,21 @@ int main(int ac, char **av)
 			return 1;
 		}
 				
-		// Open the file using input_file stream object,
+		// 1)Open the file using input_file stream object,
 		// similar to "std::cin", but from a file not "user input"
 		std::ifstream input; 		
 		if (!openFile(filename, input)) 
 			return 1; 
 	
-		// To read and storage the content of the file in one string
+		// 2)To read and storage the content of the file in one string
 		std::string content; 
 		if (!readFile(input, content))
 			return 1;
 		
-		// The Replacement of the strings
+		// 3)The Replacement of the strings
 		replaceStrings(content, s1, s2);
 		
-		// The  Write to a new file part
+		// 4)The  Write to a new file part
 		if (!writeFile(filename, content))
 			return 1;		
 	}

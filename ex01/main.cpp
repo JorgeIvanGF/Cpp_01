@@ -6,13 +6,11 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 19:19:26 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/04/28 19:40:18 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:54:34 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-Zombie* zombie_horde(int N, std::string name);
 
 int main()
 {
@@ -21,7 +19,7 @@ int main()
 
 	std::cout << "\n* Atention!! " << MAGENTA << N << RESET << " Zombies will be created.\n" << std::endl; // To organize visually
 	
-	// Creation of the Horde with defaul name
+	// Creation of the Horde with default name
 	Zombie *horde = zombie_horde(N, "Default Name"); 
 
 	std::cout << "\n"; // To organize visually

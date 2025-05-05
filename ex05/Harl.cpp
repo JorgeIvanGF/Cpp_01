@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jorgutie <jorgutie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:18:53 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/05/05 01:01:37 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:47:51 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,10 @@ void Harl::complain( std::string level)
 	
 	// Creation of Dispatch table:	
 	// With the names
-	static const std::string names[4] = 
-	{
-		"DEBUG", "INFO", "WARNING", "ERROR"
-	};
+	static const std::string names[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
 	// With the functions
-	static const HarlFunc actions[4] = 
-	{
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
+	static const HarlFunc actions[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	// Search for the matching name
 	for (int i = 0; i < 4; ++i) 
@@ -68,7 +59,7 @@ void Harl::complain( std::string level)
 			// Call the right method on this object:
 			std::cout << "Level: " << YELLOW << level << RESET << std::endl;
 			(this->*actions[i])();
-			return;   // done
+			return;
 		}
 	}
 	std::cout <<RED << "No complaints at this level: " << YELLOW << level << RESET << std::endl;

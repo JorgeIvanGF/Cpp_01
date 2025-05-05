@@ -6,16 +6,12 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 22:30:04 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/04/27 23:27:28 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:35:30 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Zombie.hpp"
-
-// Declaration of the functions to tell the compiler that these functions already exist.
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
 
 // The main function
 int main()

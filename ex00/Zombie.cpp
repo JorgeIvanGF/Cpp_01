@@ -6,7 +6,7 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:26:46 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/04/27 20:03:46 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:37:24 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ Zombie::~Zombie()
 // Member function to announce
 void Zombie::announce() const
 {
-        
     std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

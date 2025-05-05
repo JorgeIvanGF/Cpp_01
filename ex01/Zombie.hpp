@@ -6,7 +6,7 @@
 /*   By: jorgutie <jorgutie@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:02:22 by jorgutie          #+#    #+#             */
-/*   Updated: 2025/04/28 18:56:32 by jorgutie         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:45:51 by jorgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,8 @@ class Zombie
         void set_name(std::string name);
 
 };
+
+// Declaration of functions
+Zombie* zombie_horde(int N, std::string name);
 
 #endif
